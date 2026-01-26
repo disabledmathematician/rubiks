@@ -110,7 +110,16 @@ class RubiksState(object):
         
         pass
     def R(self):
-        """ TRF to TRB, TRB to BRB, BRB to BRF, BRF to TRF """
+        """ Correcting move: clockwise rotation
+
+		Seems to already be in proper form standardised by Rubik's cube guides
+
+		TRF -> TRB
+		TRB -> BRB
+		BRB -> BRF
+		BRF -> TRF
+
+		(R) """
         ttrf, tbrf, ttrb, tbrb = self.trf, self.brf, self.trb, self.brb
         ntrf, nbrf, ntrb, nbrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
         ntrb[2], ntrb[1], ntrb[0] = ttrf[0], ttrf[1], ttrf[2]
@@ -123,7 +132,15 @@ class RubiksState(object):
         #tlf, blf, trf, brf, tlb, blb, trb, brb, moves
         return n
     def R2(self):
-        """ TRF to BRB, BRB to TRF, BRF to TRB, TRB to BRF """
+        """ Correcting move: clockwise rotation
+
+		Yet again, seems to already be in proper form standardised by Rubik's cube rules. Facing any of the six sides directly, counter-clockwise rotation for inverse, clockwise for all other
+
+		TRF -> BRB
+		BRB -> TRF
+		BRF -> TRB
+		TRB -> BRF
+		(R2)  """
         ttrf, tbrf, ttrb, tbrb = self.trf, self.brf, self.trb, self.brb
         ntrf, nbrf, ntrb, nbrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
         nbrb[0], nbrb[1], nbrb[2] = ttrf[0], ttrf[1], ttrf[2]
