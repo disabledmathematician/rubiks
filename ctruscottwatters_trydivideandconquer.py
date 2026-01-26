@@ -97,10 +97,10 @@ class RubiksState(object):
         ntlf, nblf, ntlb, nblb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
         ttlf, tblf, ttlb, tblb = self.tlf, self.blf, self.tlb, self.blb
 
-	ntlb[0], ntlb[1], ntlb[2] = ttlf[2], ttlf[1], ttlf[0]
-	nblb[0], nblb[1], nblb[2] = ttlb[2], ttlb[1], ttlb[0]
-	nblf[0], nblf[1], nblf[2] = tblb[2], tblb[1], tblb[0]
-	ntlf[0], ntlf[1], ntlf[2] = tblf[2], tblf[1], tblf[0]
+	ntlb[2], ntlb[1], ntlb[0] = ttlf[0], ttlf[1], ttlf[2]
+	nblb[2], nblb[1], nblb[0] = ttlb[0], ttlb[1], ttlb[2]
+	nblf[2], nblf[1], nblf[0] = tblb[0], tblb[1], tblb[2]
+	ntlf[2], ntlf[1], ntlf[0] = tblf[0], tblf[1], tblf[2]
 
         moves = self.moves.copy()
         moves.append('L inverse')
