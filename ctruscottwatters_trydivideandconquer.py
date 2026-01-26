@@ -100,8 +100,8 @@ class RubiksState(object):
 		nblf[2], nblf[1], nblf[0] = tblb[0], tblb[1], tblb[2]
 		ntlf[2], ntlf[1], ntlf[0] = tblf[0], tblf[1], tblf[2]
 	
-        	moves = self.moves.copy()
-        	moves.append('L inverse')
+        moves = self.moves.copy()
+        moves.append('L inverse')
         n = RubiksState(ntlf, nblf, self.trf.copy(), self.brf.copy(), ntlb, nblb, self.trb.copy(), self.brb.copy(), moves)
         #tlf, blf, trf, brf, tlb, blb, trb, brb, moves
         return n
