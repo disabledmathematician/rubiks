@@ -207,7 +207,7 @@ class RubiksState(object):
         n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
         return n
     def Uinv(self):
-        """ Correcting move: clockwise rotation
+        """ Correcting move: counter-clockwise rotation
 				TRF -> TRB
 				TRB -> TLB
 				TLB -> TLF
