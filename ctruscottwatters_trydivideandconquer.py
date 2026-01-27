@@ -431,7 +431,7 @@ def CTruscottWatters(begin: int, configuration: RubiksState) -> list:
 	return configuration.moves
 	
 
-rState = RubiksState(["W", "O", "G"], ["O", "B", "W"],  ["B", "R", "Q"], ["Y", "G", "O"], ["R", "B", "Y"], ["O", "B", "Y"], ["R", "G", "Y"], ["G", "W", "T"], [])
+rState = RubiksState(["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"], [])
 
 for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
 #	CTruscottWatters(int("1054AD", base=12), rState)
