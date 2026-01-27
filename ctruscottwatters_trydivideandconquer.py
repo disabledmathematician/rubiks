@@ -84,7 +84,7 @@ class RubiksState(object):
         n = RubiksState(ntlf, nblf, self.trf.copy(), self.brf.copy(), ntlb, nblb, self.trb.copy(), self.brb.copy(), moves)
         return n
     def Linv(self):
-        """ Correcting move: counter-clockwise rotation
+    	""" Correcting move: counter-clockwise rotation
 
 		TLF -> TLB
 		TLB -> BLB
@@ -93,20 +93,16 @@ class RubiksState(object):
 
 		(L inverse)
 		 """
-		ntlf, nblf, ntlb, nblb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
-		ttlf, tblf, ttlb, tblb = self.tlf, self.blf, self.tlb, self.blb
-		ntlb[2], ntlb[1], ntlb[0] = ttlf[0], ttlf[1], ttlf[2]
-		nblb[2], nblb[1], nblb[0] = ttlb[0], ttlb[1], ttlb[2]
-		nblf[2], nblf[1], nblf[0] = tblb[0], tblb[1], tblb[2]
-		ntlf[2], ntlf[1], ntlf[0] = tblf[0], tblf[1], tblf[2]
-	
-        moves = self.moves.copy()
-        moves.append('L inverse')
-        n = RubiksState(ntlf, nblf, self.trf.copy(), self.brf.copy(), ntlb, nblb, self.trb.copy(), self.brb.copy(), moves)
-        #tlf, blf, trf, brf, tlb, blb, trb, brb, moves
-        return n
-        
-        pass
+    	ntlf, nblf, ntlb, nblb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
+    	ttlf, tblf, ttlb, tblb = self.tlf, self.blf, self.tlb, self.blb
+    	ntlb[2], ntlb[1], ntlb[0] = ttlf[0], ttlf[1], ttlf[2]
+    	nblb[2], nblb[1], nblb[0] = ttlb[0], ttlb[1], ttlb[2]
+    	nblf[2], nblf[1], nblf[0] = tblb[0], tblb[1], tblb[2]
+    	ntlf[2], ntlf[1], ntlf[0] = tblf[0], tblf[1], tblf[2]
+    	moves = self.moves.copy()
+    	moves.append('L inverse')
+    	n = RubiksState(ntlf, nblf, self.trf.copy(), self.brf.copy(), ntlb, nblb, self.trb.copy(), self.brb.copy(), moves)
+    	return n
     def R(self):
         """ Correcting move: clockwise rotation
 
@@ -162,11 +158,11 @@ class RubiksState(object):
 		(R inverse) """
         ttrf, tbrf, ttrb, tbrb = self.trf, self.brf, self.trb, self.brb
         ntrf, nbrf, ntrb, nbrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
-		nbrb[0], nbrb[1], nbrb[2] = tbrf[2], tbrf[1], tbrf[0]
-		ntrb[0], ntrb[1], ntrb[2] = tbrb[2], tbrb[1], tbrb[0]
-		ntrf[0], ntrf[1], ntrf[2] = ttrb[2], ttrb[1], ttrb[0]
-		nbrf[0], nbrf[1], nbrf[2] = ttrf[2], ttrf[1], ttrf[0]
-
+        nbrb[0], nbrb[1], nbrb[2] = tbrf[2], tbrf[1], tbrf[0]
+        ntrb[0], ntrb[1], ntrb[2] = tbrb[2], tbrb[1], tbrb[0]
+        ntrf[0], ntrf[1], ntrf[2] = ttrb[2], ttrb[1], ttrb[0]
+        nbrf[0], nbrf[1], nbrf[2] = ttrf[2], ttrf[1], ttrf[0]
+        
         moves = self.moves.copy()
         moves.append('R inverse')
         n = RubiksState(self.tlf.copy(), self.blf.copy(), ntrf, nbrf, self.tlb.copy(), self.blb.copy(), ntrb, nbrb, moves)
