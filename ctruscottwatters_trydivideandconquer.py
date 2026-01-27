@@ -162,10 +162,10 @@ class RubiksState(object):
 		(R inverse) """
         ttrf, tbrf, ttrb, tbrb = self.trf, self.brf, self.trb, self.brb
         ntrf, nbrf, ntrb, nbrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
-	nbrb[0], nbrb[1], nbrb[2] = tbrf[2], tbrf[1], tbrf[0]
-	ntrb[0], ntrb[1], ntrb[2] = tbrb[2], tbrb[1], tbrb[0]
-	ntrf[0], ntrf[1], ntrf[2] = ttrb[2], ttrb[1], ttrb[0]
-	nbrf[0], nbrf[1], nbrf[2] = ttrf[2], ttrf[1], ttrf[0]
+		nbrb[0], nbrb[1], nbrb[2] = tbrf[2], tbrf[1], tbrf[0]
+		ntrb[0], ntrb[1], ntrb[2] = tbrb[2], tbrb[1], tbrb[0]
+		ntrf[0], ntrf[1], ntrf[2] = ttrb[2], ttrb[1], ttrb[0]
+		nbrf[0], nbrf[1], nbrf[2] = ttrf[2], ttrf[1], ttrf[0]
 
         moves = self.moves.copy()
         moves.append('R inverse')
