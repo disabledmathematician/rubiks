@@ -189,7 +189,13 @@ class RubiksState(object):
     	n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
     	return n
     def U2(self):
-        """ TLF to TRB, TRB to TLF, TRF to TLB, TLB to TRF """
+        """ Correcting move: clockwise rotation
+				Seems these are already in correct form
+                TLF -> TRB
+                TRB -> TLF
+                TRF -> TLB
+                TLB -> TRF
+                (U2) """
         ttlf, ttrf, ttlb, ttrb = self.tlf, self.trf, self.tlb, self.trb
         ntlf, ntlb, ntrf, ntrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
         ntrb[0], ntrb[1], ntrb[2] = ttlf[0], ttlf[1], ttlf[2]
@@ -201,13 +207,19 @@ class RubiksState(object):
         n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
         return n
     def Uinv(self):
-        """ TLF to TLB, TLB to TRB, TRB to TRF, TRF to TLF """
+        """ Correcting move: clockwise rotation
+				TRF -> TRB
+				TRB -> TLB
+				TLB -> TLF
+				TLF - TRF
+                (U inverse) """
         ntlf, ntlb, ntrf, ntrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
         ttlf, ttrf, ttlb, ttrb = self.tlf, self.trf, self.tlb, self.trb
-        ntlb[0], ntlb[1], ntlb[2] = ttlf[0], ttlf[2], ttlf[1]
-        ntrb[0], ntrb[1], ntrb[2] = ttlb[0], ttlb[2], ttlb[1]
-        ntrf[0], ntrf[1], ntrf[2] = ttrb[0], ttrb[2], ttrb[1]
-        ntlf[0], ntlf[1], ntlf[2] = ttrf[0], ttrf[2], ttrf[1]
+        ntrb[0], ntrb[2], ntrb[1] = ttrf[0], ttrf[1], ttrf[2]
+        ntlb[0], ntlb[2], ntlb[1] = ttrb[0], ttrb[1], ttrb[2]
+        ntlf[0], ntlf[2], ntlf[1] = ttlb[0], ttlb[1], ttlb[2]
+        ntrf[0], ntrf[2], ntrf[1] = ttlf[0], ttlf[1], ttlf[2]
+        
         moves = self.moves.copy()
         moves.append('U inverse')
         n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
@@ -419,7 +431,7 @@ def CTruscottWatters(begin: int, configuration: RubiksState) -> list:
 	return configuration.moves
 	
 
-rState = RubiksState(["W", "O", "G"], ["Y", "O", "G"],  ["W", "R", "G"], ["Y", "R", "G"], ["W", "O", "B"], ["Y", "B", "R"], ["W", "R", "B"], ["Y", "B", "O"], [])
+rState = RubiksState(["W", "O", "G"], ["O", "B", "W"],  ["B", "R", "Q"], ["Y", "G", "O"], ["R", "B", "Y"], ["O", "B", "Y"], ["R", "G", "Y"], ["G", "W", "T"], [])
 
 for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
 #	CTruscottWatters(int("1054AD", base=12), rState)
