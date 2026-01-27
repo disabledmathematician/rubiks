@@ -1,3 +1,4 @@
+#pylint:disable= 'inconsistent use of tabs and spaces in indentation (ctruscottwatters_trydivideandconquer, line 188)'
 """
 Trying for a divide and conquer algorithm to solve the 2 x 2 x 2 Rubik's Cube 
 
@@ -168,7 +169,7 @@ class RubiksState(object):
         n = RubiksState(self.tlf.copy(), self.blf.copy(), ntrf, nbrf, self.tlb.copy(), self.blb.copy(), ntrb, nbrb, moves)
         return n
     def U(self):
-        """ Correcting move: clockwise rotation
+    	""" Correcting move: clockwise rotation
 
 
                 TLF -> TLB
@@ -176,17 +177,17 @@ class RubiksState(object):
                 TRB -> TRF
                 TRF -> TLF
                 (U) """
-	ntlf, ntlb, ntrf, ntrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
-        ttlf, ttrf, ttlb, ttrb = self.tlf, self.trf, self.tlb, self.trb
-	ntlb[0], ntlb[2], ntlb[1] = ttlf[0], ttlf[1], ttlf[2]
-	ntrb[0], ntrb[2], ntrb[1] = ttlb[0], ttlb[1], ttlb[2]
-        ntrf[0], ntrf[2], ntrf[1] = ttrb[0], ttrb[1], ttrb[2]
-        ntlf[0], ntlf[2], ntlf[1] = ttrf[0], ttrf[1], ttrf[2]
-	# This may be incorrect, I may have to do some auditing / testing for coherency
-        moves = self.moves.copy()
-        moves.append('U')
-        n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
-        return n
+    	ntlf, ntlb, ntrf, ntrb = [0] * 3, [0] * 3, [0] * 3, [0] * 3
+    	ttlf, ttrf, ttlb, ttrb = self.tlf, self.trf, self.tlb, self.trb
+    	ntlb[0], ntlb[2], ntlb[1] = ttlf[0], ttlf[1], ttlf[2]
+    	ntrb[0], ntrb[2], ntrb[1] = ttlb[0], ttlb[1], ttlb[2]
+    	ntrf[0], ntrf[2], ntrf[1] = ttrb[0], ttrb[1], ttrb[2]
+    	ntlf[0], ntlf[2], ntlf[1] = ttrf[0], ttrf[1], ttrf[2]
+    	moves = self.moves.copy()
+    	moves.append('U')
+    	# This may be incorrect, I may have to do some auditing / testing for coherency
+    	n = RubiksState(ntlf, self.blf, ntrf, self.brf, ntlb, self.blb, ntrb, self.brb, moves)
+    	return n
     def U2(self):
         """ TLF to TRB, TRB to TLF, TRF to TLB, TLB to TRF """
         ttlf, ttrf, ttlb, ttrb = self.tlf, self.trf, self.tlb, self.trb
