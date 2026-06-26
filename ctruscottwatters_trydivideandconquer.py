@@ -433,14 +433,40 @@ def CTruscottWatters(begin: int, configuration: RubiksState) -> list:
 from itertools import permutations
 
 allStates = []
-for state in permutations([["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"]]):
+#for state in permutations([["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"]]):
+#for state in permutations([["W", "O", "G"], ["B", "R", "W"],  ["B", "W", "O"], ["Y", "O", "B"], ["Y", "G", "R"], ["Y", "G", "O"], ["G", "R", "W"], ["R", "B", "Y"]]):
 #	print(list(state))
-	allStates.append(RubiksState(*state, []))
+#	allStates.append(RubiksState(*state, []))
 #print(allStates)
 
+def CTruscottWatters_rotate_axes(configuration: RubiksState, which_way: str) -> RubiksState:
+	if which_way == "UTD1":
+		""" Front face becomes up face. Up face becomes back face. Back face becomes down face. Down face becomes front face """
+		pass
+	if which_way == "UTD2":
+		pass
+	if which_way == "UTD3":
+		pass
+	if which_way == "RTL1":
+		""" Right face becomes back face. Back face becomes left face. Left face becomes front face. Front face becomes right face. """
+		pass
+	if which_way == "RTL2":
+		pass
+	if which_way == "RTL3":
+		pass
+	if which_way == "RULD1":
+		""" Right face becomes up face. Up face becomes left face. Left face becomes down face. Down face becomes right face """
+		pass
+	if which_way == "RULD2":
+		pass
+	if which_way == "RULD3":
+		pass
+""" The consecution of face-axes rotation is not symmetric, e.g. orienting the cube with UTD1 RTL1 is not the same as RTL1 followed by UTD1 """
+""" May need a quadratic complexity loop, there are 3 * 3 * 6, if I am correct, ways to uniquely orient the cube, maybe it goes further """
 
+rS = RubiksState(["W", "O", "G"], ["R", "G", "W"],  ["B", "W", "O"], ["R", "B", "W"], ["B", "Y", "R"], ["G", "Y", "R"], ["B", "Y", "O"], ["Y", "O", "G"], [])
 
-rS = RubiksState(["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"], [])
+allStates.append(rS)
 def Charles_begin(rState):
 	for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
 #		print(n)
