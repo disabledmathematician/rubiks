@@ -453,15 +453,19 @@ def CTruscottWatters_rotate_axes(configuration: RubiksState, which_way: str) -> 
 		""" Right face becomes back face. Back face becomes left face. Left face becomes front face. Front face becomes right face. """
 		pass
 	if which_way == "RTL2":
+		""" Right Face becomes Left face. Back face becomes front face. Left face becomes right face. Front face becomes back face """
 		pass
 	if which_way == "RTL3":
+		""" Right face becomes Front Face. Back face becomes right face. Left face becomes back face. Front face becomes left face. """
 		pass
 	if which_way == "RULD1":
 		""" Right face becomes up face. Up face becomes left face. Left face becomes down face. Down face becomes right face """
 		pass
 	if which_way == "RULD2":
+		""" Right face becomes left face. Up face becomes down face. Left face becomes right face. Down face becomes up face """
 		pass
 	if which_way == "RULD3":
+		""" Right face becomes down face.Up face becomes right face. Left face becomes up face. Down face becomes left face. """
 		pass
 """ The consecution of face-axes rotation is not symmetric, e.g. orienting the cube with UTD1 RTL1 is not the same as RTL1 followed by UTD1 """
 """ May need a quadratic complexity loop, there are 3 * 3 * 6, if I am correct, ways to uniquely orient the cube, maybe it goes further """
