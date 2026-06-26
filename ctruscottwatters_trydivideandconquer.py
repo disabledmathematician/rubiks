@@ -1,3 +1,4 @@
+#pylint:disable=W1404
 #pylint:disable= 'inconsistent use of tabs and spaces in indentation (ctruscottwatters_trydivideandconquer, line 188)'
 """
 Trying for a divide and conquer algorithm to solve the 2 x 2 x 2 Rubik's Cube 
@@ -470,22 +471,42 @@ def CTruscottWatters_rotate_axes(configuration: RubiksState, which_way: str) -> 
 """ The consecution of face-axes rotation is not symmetric, e.g. orienting the cube with UTD1 RTL1 is not the same as RTL1 followed by UTD1 """
 """ May need a quadratic complexity loop, there are 3 * 3 * 6, if I am correct, ways to uniquely orient the cube, maybe it goes further """
 
+def CTruscottWatters_create_axes(r: RubiksState):
+	""" Implementing lambda methods as key functions not strings, just in a few revisions """
+	tempState = r
+	for m in ["UTD1", "UTD2", "UTD3"]:
+#		newState = tempState.m()
+#		allStates.append(newState)
+		for n in ["RTL1", "RTL2", "RTL3", "RULD1", "RULD2", "RULD3"]:
+#			newState = newState.n()
+#			allStates.append(newState)
+			print(m, n)
+		pass
+	for m in ["RTL1", "RTL2", "RTL3"]:
+		for n in ["UTD1", "UTD2", "UTD3", "RULD1", "RULD2", "RULD3"]:
+			print(m, n)
+		pass
+	for m in ["RULD1", "RULD2", "RULD3"]:
+		for n in ["UTD1", "UTD2", "UTD3", "RTL1", "RTL2", "RTL3"]:
+			print(m, n)
+		pass
+		""" Rotate the Rubik's cube to all orientations / axes then solve via exhaustive enumeration cubit wise with a reduced instruction set (L, L', R, R', U, U', D, D', F, F', B, B') """
 rS = RubiksState(["W", "O", "G"], ["R", "G", "W"],  ["B", "W", "O"], ["R", "B", "W"], ["B", "Y", "R"], ["G", "Y", "R"], ["B", "Y", "O"], ["Y", "O", "G"], [])
-
-allStates.append(rS)
-def Charles_begin(rState):
-	for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
+CTruscottWatters_create_axes(rS)
+#allStates.append(rS)
+#def Charles_begin(rState):
+#	for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
 #		print(n)
-		CTruscottWatters(n, rState)
+#		CTruscottWatters(n, rState)
 #Charles_begin(rS)
-threads = []
-import threading
-for st in allStates:
-	Charles_begin(st)
-	thread = threading.Thread(target=Charles_begin, args=(st))
-	threads.append(thread)
-	thread.start()
-for thread in threads:
-	thread.join()
+#threads = []
+#import threading
+#for st in allStates:
+#	Charles_begin(st)
+#	thread = threading.Thread(target=Charles_begin, args=(st))
+#	threads.append(thread)
+#	thread.start()
+#for thread in threads:
+#	thread.join()
 
 #	
