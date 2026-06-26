@@ -444,8 +444,10 @@ def CTruscottWatters_rotate_axes(configuration: RubiksState, which_way: str) -> 
 		""" Front face becomes up face. Up face becomes back face. Back face becomes down face. Down face becomes front face """
 		pass
 	if which_way == "UTD2":
+		""" Front face becomes back face. Up face becomes down face. Down face becomes Up face. Back face becomes front face """
 		pass
 	if which_way == "UTD3":
+		""" Front face becomes down face. Up face becomes front face. Back face becomes up face. Down face becomes back face """
 		pass
 	if which_way == "RTL1":
 		""" Right face becomes back face. Back face becomes left face. Left face becomes front face. Front face becomes right face. """
