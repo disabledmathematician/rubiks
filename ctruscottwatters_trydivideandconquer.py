@@ -430,9 +430,30 @@ def CTruscottWatters(begin: int, configuration: RubiksState) -> list:
 	print(Tridecimal(begin, configuration))
 	return configuration.moves
 	
+from itertools import permutations
 
-rState = RubiksState(["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"], [])
+allStates = []
+for state in permutations([["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"]]):
+#	print(list(state))
+	allStates.append(RubiksState(*state, []))
+#print(allStates)
 
-for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
-#	CTruscottWatters(int("1054AD", base=12), rState)
-	CTruscottWatters(n, rState)
+
+
+rS = RubiksState(["Y", "O", "B"], ["W", "O", "B"],  ["R", "B", "Y"], ["O", "Y", "G"], ["O", "W", "G"], ["R", "G", "Y"], ["G", "R", "W"], ["B", "R", "W"], [])
+def Charles_begin(rState):
+	for n in range(int("1111111", base=13), int("CCCCCCCCCC", base=13), 1):
+#		print(n)
+		CTruscottWatters(n, rState)
+#Charles_begin(rS)
+threads = []
+import threading
+for st in allStates:
+	Charles_begin(st)
+	thread = threading.Thread(target=Charles_begin, args=(st))
+	threads.append(thread)
+	thread.start()
+for thread in threads:
+	thread.join()
+
+#	
