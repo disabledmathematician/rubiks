@@ -441,31 +441,31 @@ allStates = []
 
 def CTruscottWatters_rotate_axes(configuration: RubiksState, which_way: str) -> RubiksState:
 	if which_way == "UTD1":
-		""" Front face becomes up face. Up face becomes back face. Back face becomes down face. Down face becomes front face """
+		""" Front face becomes up face. Up face becomes back face. Back face becomes down face. Down face becomes front face. The parallel Left and Right face are rotated on their own axis"""
 		pass
 	if which_way == "UTD2":
-		""" Front face becomes back face. Up face becomes down face. Down face becomes Up face. Back face becomes front face """
+		""" Front face becomes back face. Up face becomes down face. Down face becomes Up face. Back face becomes front face. face. Down face becomes front face. The parallel Left and Right face are rotated on their own axis """
 		pass
 	if which_way == "UTD3":
-		""" Front face becomes down face. Up face becomes front face. Back face becomes up face. Down face becomes back face """
+		""" Front face becomes down face. Up face becomes front face. Back face becomes up face. Down face becomes back face. The parallel Left and Right face are rotated on their own axis """
 		pass
 	if which_way == "RTL1":
-		""" Right face becomes back face. Back face becomes left face. Left face becomes front face. Front face becomes right face. """
+		""" Right face becomes back face. Back face becomes left face. Left face becomes front face. Front face becomes right face. The parallel Up and Down face are rotated on their own axis """
 		pass
 	if which_way == "RTL2":
-		""" Right Face becomes Left face. Back face becomes front face. Left face becomes right face. Front face becomes back face """
+		""" Right Face becomes Left face. Back face becomes front face. Left face becomes right face. Front face becomes back face. The parallel Up and Down face are rotated on their own axis """
 		pass
 	if which_way == "RTL3":
-		""" Right face becomes Front Face. Back face becomes right face. Left face becomes back face. Front face becomes left face. """
+		""" Right face becomes Front Face. Back face becomes right face. Left face becomes back face. Front face becomes left face. The parallel Up and Down face are rotated on their own axis """
 		pass
 	if which_way == "RULD1":
-		""" Right face becomes up face. Up face becomes left face. Left face becomes down face. Down face becomes right face """
+		""" Right face becomes up face. Up face becomes left face. Left face becomes down face. Down face becomes right face. The parallel Front and Back face are rotated on their own axis """
 		pass
 	if which_way == "RULD2":
-		""" Right face becomes left face. Up face becomes down face. Left face becomes right face. Down face becomes up face """
+		""" Right face becomes left face. Up face becomes down face. Left face becomes right face. Down face becomes up face. The parallel Front and Back face are rotated on their own axis  """
 		pass
 	if which_way == "RULD3":
-		""" Right face becomes down face.Up face becomes right face. Left face becomes up face. Down face becomes left face. """
+		""" Right face becomes down face.Up face becomes right face. Left face becomes up face. Down face becomes left face. The parallel Front and Back face are rotated on their own axis """
 		pass
 """ The consecution of face-axes rotation is not symmetric, e.g. orienting the cube with UTD1 RTL1 is not the same as RTL1 followed by UTD1 """
 """ May need a quadratic complexity loop, there are 3 * 3 * 6, if I am correct, ways to uniquely orient the cube, maybe it goes further """
